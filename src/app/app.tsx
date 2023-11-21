@@ -1,3 +1,4 @@
 import { FunctionComponent } from "react";
-
-export const App: FunctionComponent = () => <div>App</div>;
+import { AppProvider } from "./providers/app-provider";
+import "./globals.css";
+export const App: FunctionComponent = () => <AppProvider />;
