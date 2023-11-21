@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -20,8 +24,6 @@
       "src/*": ["src/*"]
     }
   },
-  "include": [
-    "./src"
-  ],
-  "references": [{ "path": "./tsconfig.node.json"}]
+  "include": ["./src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

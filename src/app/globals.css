@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@layer {
+  :root {
+    --primary: #1d2135;
+    --secondary: #e1e2ea;
+    --accent-green: #0de7b9;
+    --accent-blue: #1471f2;
+  }
+}
+@layer components {
+  .col {
+    @apply flex flex-col;
+  }
+}
