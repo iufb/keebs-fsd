@@ -1,10 +1,10 @@
-import { FC, HTMLAttributes } from "react";
+import { ButtonHTMLAttributes, FC } from "react";
 import { clsx } from "clsx";
 type buttonVariantsType = "primary" | "outlined" | "icon";
 type buttonType = {
   variant: buttonVariantsType;
   type?: "button" | "submit" | "reset";
-} & HTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 export const Button: FC<buttonType> = ({
   variant,
   className,
@@ -16,7 +16,7 @@ export const Button: FC<buttonType> = ({
     <button
       className={clsx(
         className,
-        "w-full rounded-md",
+        "w-full rounded-md disabled:opacity-50",
         {
           primary: "bg-primary px-4 h-14 text-secondary font-bold text-lg ",
           //TODO: outlined btn

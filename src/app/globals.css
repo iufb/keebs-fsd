@@ -22,4 +22,7 @@ body {
   .col {
     @apply flex flex-col;
   }
+  .link {
+    @apply text-lg hover:font-bold underline;
+  }
 }
