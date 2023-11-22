@@ -20,7 +20,7 @@ export const SignInForm = () => {
         value={authData.password}
         onChange={handleInput}
       />
-      <span className="text-rose-500">{error}</span>
+      <span className="text-rose-500 h-5">{error}</span>
       <Button
         disabled={isLoading}
         variant="primary"

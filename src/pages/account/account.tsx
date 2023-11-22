@@ -1,3 +1,10 @@
+import { AccountDetails } from "src/widgets/account";
+
 export const AccountPage = () => {
-  return <div>account</div>;
+  return (
+    <section>
+      <div>,</div>
+      <AccountDetails />
+    </section>
+  );
 };

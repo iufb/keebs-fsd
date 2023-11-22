@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { useRoutes } from "react-router-dom";
+import { ProtectedRoute } from "src/features/auth";
 import { MainLayout } from "src/pages/layouts";
 import { PATH } from "src/shared/lib";
 import { Loadable } from "src/shared/ui";
@@ -16,7 +17,14 @@ export const RouterProvider = () => {
       element: <MainLayout />,
       children: [
         { path: PATH.home, element: <HomePage /> },
-        { path: PATH.account, element: <AccountPage /> },
+        {
+          path: PATH.account,
+          element: (
+            <ProtectedRoute>
+              <AccountPage />
+            </ProtectedRoute>
+          ),
+        },
         { path: PATH.signup, element: <SignUpPage /> },
         { path: PATH.signin, element: <SignInPage /> },
         { path: PATH.keyboards, element: <div>keyboard</div> },

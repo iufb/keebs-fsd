@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import { AxiosError } from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { type ISignupRequest, signup } from "src/shared/api/auth";
@@ -26,8 +27,12 @@ export const useSignupForm = () => {
     e.preventDefault();
     signUpMutation.mutate(authData);
   };
+  let errorMessage;
+  if (signUpMutation.error instanceof AxiosError) {
+    errorMessage = signUpMutation.error.response?.data.message;
+  }
   const error = signUpMutation.error
-    ? `Opps... Error occured! ${signUpMutation.error.message}`
+    ? `Opps... Error occured! ${errorMessage}`
     : undefined;
   return {
     authData,

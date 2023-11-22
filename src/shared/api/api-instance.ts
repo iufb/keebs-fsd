@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
+import { useAccountStore } from "src/entities/account";
 import { Endpoints } from "./endpoints";
 
 const instance = axios.create({
@@ -10,19 +11,19 @@ const skipAuthUrls = [
   Endpoints.AUTH.SIGNIN,
   Endpoints.AUTH.REFRESH,
 ];
-// instance.interceptors.request.use(async (config) => {
-//   if (config.url && skipAuthUrls.includes(config.url)) {
-//     return config;
-//   }
-//   const accessToken = await getAccessToken();
-//
-//   if (accessToken) {
-//     const authorization = `Bearer ${accessToken}`;
-//     config.headers.Authorization = authorization;
-//   }
-//
-//   return config;
-// });
+instance.interceptors.request.use(async (config) => {
+  if (config.url && skipAuthUrls.includes(config.url)) {
+    return config;
+  }
+  const accessToken = useAccountStore.getState().accessToken;
+
+  if (accessToken) {
+    const authorization = `Bearer ${accessToken}`;
+    config.headers.Authorization = authorization;
+  }
+
+  return config;
+});
 // instance.interceptors.response.use(
 //   (response: AxiosResponse) => response,
 //   async (error: AxiosError) => {

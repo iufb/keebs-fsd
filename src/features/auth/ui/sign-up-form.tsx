@@ -30,7 +30,7 @@ export const SignUpForm = () => {
         value={authData.password}
         onChange={handleInput}
       />
-      <span>{error}</span>
+      <span className="text-rose-500 h-5">{error}</span>
       <Button variant="primary" type="submit" disabled={isLoading}>
         Create
       </Button>

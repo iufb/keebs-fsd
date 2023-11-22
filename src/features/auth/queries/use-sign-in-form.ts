@@ -1,7 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
+import { AxiosError, AxiosResponse } from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { type ISigninRequest, signin } from "src/shared/api/auth";
+import { useAccountStore } from "src/entities/account";
+import {
+  type ISigninRequest,
+  signin,
+  ISigninResponse,
+} from "src/shared/api/auth";
 import { PATH } from "src/shared/lib";
 
 export const useSigninForm = () => {
@@ -11,7 +17,8 @@ export const useSigninForm = () => {
   });
   const signInMutation = useMutation({
     mutationFn: signin,
-    onSuccess() {
+    onSuccess({ data }: AxiosResponse<ISigninResponse>) {
+      useAccountStore.getState().setAccessToken(data.accessToken);
       navigate(PATH.account);
     },
   });
@@ -25,8 +32,12 @@ export const useSigninForm = () => {
     e.preventDefault();
     signInMutation.mutate(authData);
   };
+  let errorMessage;
+  if (signInMutation.error instanceof AxiosError) {
+    errorMessage = signInMutation.error.response?.data.message;
+  }
   const error = signInMutation.error
-    ? `Opps... Error occured! ${signInMutation.error.message}`
+    ? `Opps... Error occured! ${errorMessage}`
     : undefined;
   return {
     authData,
