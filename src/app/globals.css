@@ -25,4 +25,10 @@ body {
   .link {
     @apply text-lg hover:font-bold underline;
   }
+  .h1 {
+    @apply text-4xl font-bold font-roboto;
+  }
+  .h2 {
+    @apply text-3xl font-bold font-roboto;
+  }
 }

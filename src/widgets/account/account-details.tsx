@@ -4,10 +4,10 @@ export const AccountDetails = () => {
   const { data, isLoading } = useGetAccount();
   return (
     <div className="col gap-3">
-      <h2>Account details</h2>
+      <h2 className="h2">Account details</h2>
       {/* TODO: loading */}
       {isLoading && <div>loaidng..</div>}
-      <span>{data?.username}</span>
+      <span className="font-bold">{data?.username}</span>
     </div>
   );
 };
