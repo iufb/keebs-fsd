@@ -2,7 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { AxiosError, AxiosResponse } from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAccountStore } from "src/entities/account";
 import {
   type ISigninRequest,
   signin,
@@ -18,7 +17,7 @@ export const useSigninForm = () => {
   const signInMutation = useMutation({
     mutationFn: signin,
     onSuccess({ data }: AxiosResponse<ISigninResponse>) {
-      useAccountStore.getState().setAccessToken(data.accessToken);
+      localStorage.setItem("accessToken", data.accessToken);
       navigate(PATH.account);
     },
   });
