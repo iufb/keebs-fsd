@@ -9,6 +9,7 @@ const HomePage = Loadable(lazy(() => import("src/pages/home")));
 const AccountPage = Loadable(lazy(() => import("src/pages/account")));
 const SignUpPage = Loadable(lazy(() => import("src/pages/sign-up")));
 const SignInPage = Loadable(lazy(() => import("src/pages/sign-in")));
+const KeyboardsCatalogPage = Loadable(lazy(() => import("src/pages/keyboard")));
 
 export const RouterProvider = () => {
   return useRoutes([
@@ -27,7 +28,7 @@ export const RouterProvider = () => {
         },
         { path: PATH.signup, element: <SignUpPage /> },
         { path: PATH.signin, element: <SignInPage /> },
-        { path: PATH.keyboards, element: <div>keyboard</div> },
+        { path: PATH.keyboards, element: <KeyboardsCatalogPage /> },
       ],
     },
   ]);

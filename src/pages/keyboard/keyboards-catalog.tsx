@@ -1,0 +1,30 @@
+import { PATH } from "src/shared/lib";
+import { Card } from "src/shared/ui";
+import { useKeyboardsCatalog } from "./queries/use-keyboards-catalog";
+
+export const KeyboardsCatalogPage = () => {
+  const { keyboards } = useKeyboardsCatalog();
+  return (
+    <section className="w-full h-full collection-grid">
+      {/* {isLoading && <div>laoding</div>} */}
+      <div>filter</div>
+      {keyboards && (
+        <div>
+          <div>sort</div>
+          <div className="catalog">
+            {keyboards.map((keyboard) => (
+              <Card
+                to={PATH.keyboard(keyboard._id)}
+                name={keyboard.name}
+                img={keyboard.images[0].image}
+                rating={5}
+                reviewCount={5}
+                price={keyboard.price}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};

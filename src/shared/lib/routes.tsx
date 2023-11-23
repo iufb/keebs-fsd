@@ -7,4 +7,5 @@ export const PATH = {
   keyboards: "/keyboards",
   keycaps: "/keycaps",
   switches: "/switches",
+  keyboard: (id: string) => `/keyboards/${id}`,
 };
