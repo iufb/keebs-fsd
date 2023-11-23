@@ -1,4 +1,4 @@
-import { useGetAccount } from "./use-get-account";
+import { useGetAccount } from "../queries/use-get-account";
 
 export const AccountDetails = () => {
   const { data, isLoading } = useGetAccount();
@@ -8,6 +8,7 @@ export const AccountDetails = () => {
       {/* TODO: loading */}
       {isLoading && <div>loaidng..</div>}
       <span className="font-bold">{data?.username}</span>
+      <span>Email : {data?.email}</span>
     </div>
   );
 };

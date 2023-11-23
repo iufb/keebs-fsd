@@ -1,5 +1,6 @@
 import { PATH } from "src/shared/lib";
 import { Card } from "src/shared/ui";
+import { KeyboardFilterSidebar } from "src/widgets/keyboard";
 import { useKeyboardsCatalog } from "./queries/use-keyboards-catalog";
 
 export const KeyboardsCatalogPage = () => {
@@ -7,7 +8,7 @@ export const KeyboardsCatalogPage = () => {
   return (
     <section className="w-full h-full collection-grid">
       {/* {isLoading && <div>laoding</div>} */}
-      <div>filter</div>
+      <KeyboardFilterSidebar />
       {keyboards && (
         <div>
           <div>sort</div>
