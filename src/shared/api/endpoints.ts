@@ -9,7 +9,8 @@ export const Endpoints = {
   KEYBOARD: {
     all: "/keyboard",
     byId: (id: string) => `/keyboard/${id}`,
-    filters: "/keyboard/filters",
+    getFilters: "/keyboard/filters",
+    filter: "/keyboard/filter",
   },
   KEYCAP: {
     all: "/keycap",

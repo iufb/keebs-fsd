@@ -8,5 +8,8 @@ export function getKeyboardById<T>(id: string) {
   return instance.get<T>(Endpoints.KEYBOARD.byId(id));
 }
 export function getKeyboardFilters<T>() {
-  return instance.get<T>(Endpoints.KEYBOARD.filters);
+  return instance.get<T>(Endpoints.KEYBOARD.getFilters);
+}
+export function filterKeyboards<T, M>(filters: M) {
+  return instance.post<T>(Endpoints.KEYBOARD.filter, { filters });
 }
