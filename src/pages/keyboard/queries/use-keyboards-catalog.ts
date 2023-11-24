@@ -11,6 +11,7 @@ export const useKeyboardsCatalog = () => {
     queryFn: async () => {
       const { data } = await getAllKeyboards<IKeyboard[]>();
       updateKeyboards(data);
+      return data;
     },
   });
 };

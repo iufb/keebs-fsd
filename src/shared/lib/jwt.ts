@@ -34,7 +34,6 @@ let refreshTokenRequest: AxiosPromise<ISigninResponse> | null = null;
 export const getAccessToken = async () => {
   try {
     const accessToken = localStorage.getItem("accessToken");
-    console.log(isTokenExpired(accessToken), "there");
     if (accessToken) {
       if (isTokenExpired(accessToken) && refreshTokenRequest == null) {
         refreshTokenRequest = refreshToken();

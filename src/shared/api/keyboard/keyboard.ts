@@ -10,6 +10,15 @@ export function getKeyboardById<T>(id: string) {
 export function getKeyboardFilters<T>() {
   return instance.get<T>(Endpoints.KEYBOARD.getFilters);
 }
-export function filterKeyboards<T, M>(filters: M) {
-  return instance.post<T>(Endpoints.KEYBOARD.filter, { filters });
+export function filterKeyboards<T, M>({
+  filters,
+  sort,
+}: {
+  filters?: M;
+  sort?: "asc" | "desc";
+}) {
+  return instance.post<T>(Endpoints.KEYBOARD.filter, {
+    filters: filters ?? [],
+    sort,
+  });
 }

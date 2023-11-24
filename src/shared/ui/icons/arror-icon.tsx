@@ -12,10 +12,10 @@ export const ArrowIcon: FC<IArrowIcon> = ({ className }) => {
     >
       <path
         d="M1.57 1.59l12.76 12.77L27.1 1.59"
-        stroke-width="2"
+        strokeWidth="2"
         stroke="#000"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       ></path>
     </svg>
   );

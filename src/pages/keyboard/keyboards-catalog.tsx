@@ -1,4 +1,5 @@
 import { useKeyboardStore } from "src/entities/keyboard";
+import { KeyboardSort } from "src/features/keyboard/sort";
 import { PATH } from "src/shared/lib";
 import { Card } from "src/shared/ui";
 import { KeyboardFilterSidebar } from "src/widgets/keyboard";
@@ -14,8 +15,8 @@ export const KeyboardsCatalogPage = () => {
       {/* {isLoading && <div>laoding</div>} */}
       <KeyboardFilterSidebar />
       {keyboards && (
-        <div>
-          <div>sort</div>
+        <div className="col gap-2 items-end">
+          <KeyboardSort />
           <div className="catalog">
             {keyboards.map((keyboard) => (
               <Card
