@@ -17,7 +17,8 @@ export const Endpoints = {
     getFilters: "/keycap/filters",
   },
   SWITCHES: {
-    all: "/switches",
+    get: "/switches",
     byId: (id: string) => `/switches/${id}`,
+    getFilters: "/switches/filters",
   },
 };

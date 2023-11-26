@@ -13,6 +13,8 @@ const KeyboardsCatalogPage = Loadable(lazy(() => import("src/pages/keyboard")));
 const KeyboardDetails = Loadable(lazy(() => import("src/pages/keyboard/[id]")));
 const KeycapsCatalogPage = Loadable(lazy(() => import("src/pages/keycap")));
 const KeycapDetails = Loadable(lazy(() => import("src/pages/keycap/[id]")));
+const SwitchesCatalogPage = Loadable(lazy(() => import("src/pages/switches")));
+const SwitchesDetails = Loadable(lazy(() => import("src/pages/switches/[id]")));
 
 export const RouterProvider = () => {
   return useRoutes([
@@ -35,6 +37,8 @@ export const RouterProvider = () => {
         { path: PATH.keyboardDetails(":id"), element: <KeyboardDetails /> },
         { path: PATH.keycapsCatalog, element: <KeycapsCatalogPage /> },
         { path: PATH.keycapsDetails(":id"), element: <KeycapDetails /> },
+        { path: PATH.switchesCatalog, element: <SwitchesCatalogPage /> },
+        { path: PATH.switchesDetails(":id"), element: <SwitchesDetails /> },
       ],
     },
   ]);
