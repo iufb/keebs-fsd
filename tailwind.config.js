@@ -8,6 +8,7 @@ export default {
       },
       gridTemplateColumns: {
         collections: "300px 1fr",
+        imageGallery: "80px 1fr",
       },
       colors: {
         background: "#fff",

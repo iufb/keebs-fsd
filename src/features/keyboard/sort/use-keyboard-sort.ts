@@ -1,7 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
-import { filterType, IKeyboard, useKeyboardStore } from "src/entities/keyboard";
-import { filterKeyboards } from "src/shared/api/keyboard/keyboard";
+import { IKeyboard, useKeyboardStore } from "src/entities/keyboard";
+import { getKeyboards } from "src/shared/api/keyboard/keyboard";
+import { filterType } from "src/shared/lib";
 
 export const useKeyboardSort = () => {
   const { filters, updateKeyboards, sortType } = useKeyboardStore((state) => ({
@@ -12,7 +13,7 @@ export const useKeyboardSort = () => {
   const filterMutation = useMutation({
     mutationKey: ["filter"],
     mutationFn: () =>
-      filterKeyboards<IKeyboard[], filterType[]>({ filters, sort: sortType }),
+      getKeyboards<IKeyboard[], filterType[]>({ filters, sort: sortType }),
     onSuccess({ data }: AxiosResponse<IKeyboard[]>) {
       console.log(data);
       updateKeyboards(data);

@@ -2,12 +2,12 @@ import { PATH } from "./routes";
 
 export const navlinks = [
   {
-    path: PATH.keyboards,
+    path: PATH.keyboardsCatalog,
     name: "Keyboards",
   },
   {
-    path: PATH.keycaps,
+    path: PATH.keycapsCatalog,
     name: "Keycaps",
   },
-  { path: PATH.switches, name: "Switches" },
+  { path: PATH.switchesCatalog, name: "Switches" },
 ];

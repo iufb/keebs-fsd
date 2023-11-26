@@ -1,17 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import { IKeyboard, useKeyboardStore } from "src/entities/keyboard";
-import { getAllKeyboards } from "src/shared/api/keyboard";
+import { filterType, IKeyboard, useKeyboardStore } from "src/entities/keyboard";
+import { getKeyboards } from "src/shared/api/keyboard";
 
 export const useKeyboardsCatalog = () => {
-  const { updateKeyboards } = useKeyboardStore((state) => ({
+  const { updateKeyboards, sort, filters } = useKeyboardStore((state) => ({
     updateKeyboards: state.updateKeyboards,
+    sort: state.sortType,
+    filters: state.filters,
   }));
-  useQuery({
+  const { isLoading } = useQuery({
     queryKey: ["keyboardsCatalog"],
     queryFn: async () => {
-      const { data } = await getAllKeyboards<IKeyboard[]>();
+      const { data } = await getKeyboards<IKeyboard[], filterType[]>({
+        filters,
+        sort,
+      });
       updateKeyboards(data);
       return data;
     },
   });
+  return { isLoading };
 };

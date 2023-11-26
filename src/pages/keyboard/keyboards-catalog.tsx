@@ -21,7 +21,7 @@ export const KeyboardsCatalogPage = () => {
             {keyboards.map((keyboard) => (
               <Card
                 key={keyboard._id}
-                to={PATH.keyboard(keyboard._id)}
+                to={PATH.keyboardDetails(keyboard._id)}
                 name={keyboard.name}
                 img={keyboard.images[0].image}
                 rating={5}

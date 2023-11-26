@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { IFilter } from "src/entities/keyboard/model";
 import { getKeyboardFilters } from "src/shared/api/keyboard";
+import { IFilter } from "src/shared/lib";
 
 export const useKeyboardFilter = () => {
   return useQuery({

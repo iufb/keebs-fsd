@@ -7,14 +7,14 @@ export const Endpoints = {
     GET_PROFILE: "/user/profile",
   },
   KEYBOARD: {
-    all: "/keyboard",
+    get: "/keyboard",
     byId: (id: string) => `/keyboard/${id}`,
     getFilters: "/keyboard/filters",
-    filter: "/keyboard/filter",
   },
   KEYCAP: {
-    all: "/keycap",
+    get: "/keycap",
     byId: (id: string) => `/keycap/${id}`,
+    getFilters: "/keycap/filters",
   },
   SWITCHES: {
     all: "/switches",

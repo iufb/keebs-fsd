@@ -10,6 +10,9 @@ const AccountPage = Loadable(lazy(() => import("src/pages/account")));
 const SignUpPage = Loadable(lazy(() => import("src/pages/sign-up")));
 const SignInPage = Loadable(lazy(() => import("src/pages/sign-in")));
 const KeyboardsCatalogPage = Loadable(lazy(() => import("src/pages/keyboard")));
+const KeyboardDetails = Loadable(lazy(() => import("src/pages/keyboard/[id]")));
+const KeycapsCatalogPage = Loadable(lazy(() => import("src/pages/keycap")));
+const KeycapDetails = Loadable(lazy(() => import("src/pages/keycap/[id]")));
 
 export const RouterProvider = () => {
   return useRoutes([
@@ -28,7 +31,10 @@ export const RouterProvider = () => {
         },
         { path: PATH.signup, element: <SignUpPage /> },
         { path: PATH.signin, element: <SignInPage /> },
-        { path: PATH.keyboards, element: <KeyboardsCatalogPage /> },
+        { path: PATH.keyboardsCatalog, element: <KeyboardsCatalogPage /> },
+        { path: PATH.keyboardDetails(":id"), element: <KeyboardDetails /> },
+        { path: PATH.keycapsCatalog, element: <KeycapsCatalogPage /> },
+        { path: PATH.keycapsDetails(":id"), element: <KeycapDetails /> },
       ],
     },
   ]);

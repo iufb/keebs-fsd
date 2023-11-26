@@ -6,7 +6,7 @@ export const Navbar = () => {
     <nav>
       <ul className="flex gap-5 ">
         {navlinks.map((navlink) => (
-          <Navlink key={navlink.path} name={navlink.name} to={navlink.path} />
+          <Navlink key={navlink.name} name={navlink.name} to={navlink.path} />
         ))}
       </ul>
     </nav>
