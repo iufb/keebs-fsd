@@ -1,6 +1,7 @@
 export { Button } from "./button";
 export { Loadable } from "./loadable";
 export { CustomImage } from "./img";
+export { Option } from "./option";
 export { Select } from "./select";
 export { Card } from "./card";
 export { Checkbox } from "./checkbox";

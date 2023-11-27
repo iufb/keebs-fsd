@@ -14,6 +14,7 @@ body {
   :root {
     --primary: #1d2135;
     --secondary: #e1e2ea;
+    --select: #e0f3ef;
     --accent-green: #0de7b9;
     --accent-blue: #1471f2;
   }
@@ -31,6 +32,10 @@ body {
   .h2 {
     @apply text-3xl font-bold font-roboto;
   }
+  .h3 {
+    @apply text-2xl font-bold font-roboto;
+  }
+
   .catalog {
     @apply grid grid-cols-1 lg:grid-cols-2  xl:grid-cols-3 gap-2;
   }

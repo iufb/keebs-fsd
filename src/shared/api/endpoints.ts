@@ -19,6 +19,7 @@ export const Endpoints = {
   SWITCHES: {
     get: "/switches",
     byId: (id: string) => `/switches/${id}`,
+    byProfile: (profile: string) => `/switches/byProfile/${profile}`,
     getFilters: "/switches/filters",
   },
 };

@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { ColorPick } from "src/features/color-pick";
+import { ColorPick } from "src/features/keyboard/color-pick";
+import { SwitchPick } from "src/features/keyboard/switch-pick";
 import { ImageGallery } from "src/widgets/image-gallery";
 import { useKeyboardDetails } from "./queries/use-keyboard-details";
 
@@ -27,6 +28,7 @@ export const KeyboardPage = () => {
             ) : (
               <></>
             )}
+            <SwitchPick profile={keyboardDetails.profile} />
           </div>
         </main>
       )}

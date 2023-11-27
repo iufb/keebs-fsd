@@ -12,6 +12,7 @@ export default {
       },
       colors: {
         background: "#fff",
+        select: "var(--select)",
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         accent: {

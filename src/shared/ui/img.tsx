@@ -42,7 +42,13 @@ export const CustomImage: FC<IImage> = ({
           }}
         />
       ) : (
-        <img className={className} src={src} alt={alt} {...props} />
+        <img
+          className={className}
+          src={src}
+          alt={alt}
+          {...props}
+          loading="lazy"
+        />
       )}
     </>
   );

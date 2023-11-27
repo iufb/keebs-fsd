@@ -1,4 +1,10 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
+import {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from "react";
 import { useSearchParams } from "react-router-dom";
 import { IKeyboardColor } from "src/entities/keyboard";
 
@@ -8,9 +14,8 @@ interface IColorPick
 }
 export const ColorPick: FC<IColorPick> = ({ colors }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selected, setSelected] = useState(
-    searchParams.get("color") ?? colors[0].name,
-  );
+  const color = searchParams.get("color");
+  const [selected, setSelected] = useState(color ?? colors[0].name);
   const changeColor = (colorName: string) => {
     setSelected(colorName);
     setSearchParams(`color=${colorName}`);

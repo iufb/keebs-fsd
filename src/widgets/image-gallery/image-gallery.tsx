@@ -67,7 +67,7 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
         size={920}
         src={baseImage}
         alt="keyboard"
-        className="rounded-lg"
+        className="max-w-[920px] w-fit rounded-lg"
       />
     </div>
   );
