@@ -4,6 +4,9 @@ import instance from "../api-instance";
 export function getKeycapById<T>(id: string) {
   return instance.get<T>(Endpoints.KEYCAP.byId(id));
 }
+export function getKeycapByProfile<T>(profile: string) {
+  return instance.get<T>(Endpoints.KEYCAP.byProfile(profile));
+}
 export function getKeycapFilters<T>() {
   return instance.get<T>(Endpoints.KEYCAP.getFilters);
 }

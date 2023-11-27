@@ -14,6 +14,7 @@ export const Endpoints = {
   KEYCAP: {
     get: "/keycap",
     byId: (id: string) => `/keycap/${id}`,
+    byProfile: (profile: string) => `/keycap/byProfile/${profile}`,
     getFilters: "/keycap/filters",
   },
   SWITCHES: {

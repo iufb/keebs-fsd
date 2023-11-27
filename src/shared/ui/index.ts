@@ -5,6 +5,7 @@ export { Option } from "./option";
 export { Select } from "./select";
 export { Card } from "./card";
 export { Checkbox } from "./checkbox";
+export { Radio } from "./radio";
 export { Divider } from "./divider";
 export { Input } from "./input";
 export { Header } from "./header";
