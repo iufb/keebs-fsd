@@ -4,6 +4,7 @@ export const PATH = {
   signin: "/signin",
   signup: "/signup",
   account: "/account",
+  wishlist: "/wishlist",
   keyboardsCatalog: "/keyboards",
   keycapsCatalog: "/keycaps",
   switchesCatalog: "/switches",

@@ -16,7 +16,12 @@ export const Radio: FC<IRadio> = ({ name, price, selected, onClick }) => {
       )}
       onClick={onClick}
     >
-      <input type="radio" checked={selected} className="w-0" />
+      <input
+        type="radio"
+        checked={selected}
+        className="w-0"
+        onChange={() => onClick}
+      />
       <span
         className={clsx(
           "checkbox w-5 h-5 border   rounded-md  flex justify-center items-center ",

@@ -16,11 +16,13 @@ export const Button: FC<buttonType> = ({
     <button
       className={clsx(
         className,
-        "w-full rounded-md disabled:opacity-50",
+        "w-full rounded-md disabled:opacity-50 ",
         {
-          primary: "bg-primary px-4 h-14 text-secondary font-bold text-lg ",
+          primary:
+            "bg-primary px-4 h-14 text-secondary font-bold text-lg uppercase ",
           //TODO: outlined btn
-          outlined: "bg-background px-4 h-10 text-black font-bold",
+          outlined:
+            "bg-background px-4 border border-gray-900 flex justify-center items-center gap-3 uppercase  h-14 text-black font-bold",
           icon: "w-10 h-10 rounded-full shadow-lg bg-background flex justify-center items-center ",
         }[variant],
       )}

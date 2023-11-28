@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
+import { AddToCartButton } from "src/features/cart/add-to-card-button/add-to-cart-button";
 import { AddExtraKeycaps } from "src/features/keyboard/add-extra-keycaps";
 import { ColorPick } from "src/features/keyboard/color-pick";
 import { SwitchPick } from "src/features/keyboard/switch-pick";
+import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button/add-to-wishlist-button";
 import { ImageGallery } from "src/widgets/image-gallery";
 import { useKeyboardDetails } from "./queries/use-keyboard-details";
 
@@ -9,6 +11,7 @@ export const KeyboardPage = () => {
   const { id } = useParams();
   if (!id) return <div>error</div>;
   const { keyboardDetails, isLoading, error } = useKeyboardDetails(id);
+
   return (
     <div>
       {/* TODO:loading */}
@@ -31,6 +34,15 @@ export const KeyboardPage = () => {
             )}
             <SwitchPick profile={keyboardDetails.profile} />
             <AddExtraKeycaps profile={keyboardDetails.profile} />
+            <AddToCartButton />
+            <AddToWishlistButton
+              product={{
+                _id: keyboardDetails._id,
+                img: keyboardDetails.images[0].image,
+                name: keyboardDetails.name,
+                price: `$${keyboardDetails.price} USD`,
+              }}
+            />
           </div>
         </main>
       )}
