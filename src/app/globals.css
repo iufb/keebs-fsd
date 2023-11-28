@@ -23,6 +23,9 @@ body {
   .col {
     @apply flex flex-col;
   }
+  .center {
+    @apply flex justify-center items-center;
+  }
   .link {
     @apply text-lg hover:font-bold underline;
   }
