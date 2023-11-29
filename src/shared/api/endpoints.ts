@@ -23,4 +23,7 @@ export const Endpoints = {
     byProfile: (profile: string) => `/switches/byProfile/${profile}`,
     getFilters: "/switches/filters",
   },
+  WISHLIST: {
+    getProducts: "/wishlist",
+  },
 };

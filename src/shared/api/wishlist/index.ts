@@ -1,0 +1,1 @@
+export { getWishlistProducts } from "./wishlist";
