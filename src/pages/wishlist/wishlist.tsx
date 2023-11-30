@@ -1,5 +1,6 @@
 import { WishlistCard } from "src/entities/wishlist";
 import { AddToCartButton } from "src/features/cart/add-to-card-button";
+import { RemoveFromWishlistButton } from "src/features/wishlist/remove-from-wishlist-button";
 import { useWishlistProducts } from "./queries/use-wishlist-products";
 
 export const WishlistPage = () => {
@@ -8,6 +9,7 @@ export const WishlistPage = () => {
   //TODO: Loading
   if (isLoading) return <div>...olaoign</div>;
 
+  console.log(wishlistProducts);
   return (
     <section className="w-full min-h-screen ">
       <h1 className="h1 w-full text-center">Wishlist</h1>
@@ -15,7 +17,12 @@ export const WishlistPage = () => {
       <div className="grid grid-cols-4 gap-5">
         {wishlistProducts &&
           wishlistProducts.map((product) => (
-            <WishlistCard product={product} button={<AddToCartButton />} />
+            <WishlistCard
+              key={product.id}
+              product={product}
+              addToCartbutton={<AddToCartButton />}
+              remove={<RemoveFromWishlistButton id={product.id} />}
+            />
           ))}
       </div>
     </section>

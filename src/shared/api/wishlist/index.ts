@@ -1,1 +1,7 @@
-export { getWishlistProducts } from "./wishlist";
+export {
+  getWishlistProducts,
+  addProductToWishlist,
+  checkIsIn,
+  getProductsCount,
+  removeProductFromWishlist,
+} from "./wishlist";

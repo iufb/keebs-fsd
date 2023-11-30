@@ -1,5 +1,5 @@
 export interface IWishlistItem {
-  _id: string;
+  id: string;
   img: string;
   name: string;
   price: string;

@@ -37,7 +37,7 @@ export const KeyboardPage = () => {
             <AddToCartButton />
             <AddToWishlistButton
               product={{
-                _id: keyboardDetails._id,
+                id: keyboardDetails._id,
                 img: keyboardDetails.images[0].image,
                 name: keyboardDetails.name,
                 price: `$${keyboardDetails.price} USD`,

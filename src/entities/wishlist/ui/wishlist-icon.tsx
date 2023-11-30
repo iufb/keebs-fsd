@@ -1,4 +1,4 @@
-import { useWishlistStore } from "../store";
+import { useProductCount } from "../queries/use-product-count";
 
 const Icon = () => (
   <svg
@@ -198,9 +198,7 @@ const Icon = () => (
   </svg>
 );
 export const WishlistIcon = () => {
-  const { productsCount } = useWishlistStore((state) => ({
-    productsCount: state.productsCount,
-  }));
+  const { productsCount } = useProductCount();
   return (
     <div className="relative">
       <Icon />

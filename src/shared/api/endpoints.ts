@@ -25,5 +25,9 @@ export const Endpoints = {
   },
   WISHLIST: {
     getProducts: "/wishlist",
+    add: "/wishlist",
+    remove: (id: string) => `/wishlist/${id}`,
+    isIn: (id: string) => `/wishlist/${id}`,
+    count: "/wishlist/count",
   },
 };
