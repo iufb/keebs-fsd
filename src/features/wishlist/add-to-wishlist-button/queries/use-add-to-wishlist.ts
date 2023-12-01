@@ -7,8 +7,11 @@ export const useAddToWishlist = (productType: string, productId: string) => {
     mutationKey: ["add", "wishlist", productId],
     mutationFn: () => addProductToWishlist({ productType, productId }),
     onSettled: async () => {
-      return await queryClient.invalidateQueries({
-        queryKey: ["isIn", productId, "wishlistCount"],
+      await queryClient.invalidateQueries({
+        queryKey: ["isIn", productId],
+      });
+      await queryClient.invalidateQueries({
+        queryKey: ["wishlistCount"],
       });
     },
   });

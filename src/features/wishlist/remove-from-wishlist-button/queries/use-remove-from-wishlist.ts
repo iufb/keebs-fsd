@@ -7,8 +7,11 @@ export const useRemoveFromWishlist = (id: string) => {
     mutationKey: [`remove ${id} from wishlist`],
     mutationFn: () => removeProductFromWishlist(id),
     onSettled: async () => {
-      return await queryClient.invalidateQueries({
-        queryKey: ["wishlistProducts", "wishlistCount"],
+      await queryClient.invalidateQueries({
+        queryKey: ["wishlistProducts"],
+      });
+      await queryClient.invalidateQueries({
+        queryKey: ["wishlistCount"],
       });
     },
   });

@@ -10,7 +10,7 @@ interface IAddToWishistButton {
 export const AddToWishlistButton: FC<IAddToWishistButton> = ({ product }) => {
   const { isIn, add } = useAddToWishlist("keyboard", product.id);
   return (
-    <Button variant="outlined" onClick={() => add()}>
+    <Button disabled={isIn} variant="outlined" onClick={() => add()}>
       {isIn ? (
         <>
           <IoMdHeart />

@@ -11,7 +11,7 @@ export const RemoveFromWishlistButton: FC<IRemoveFromWishlistButton> = ({
 }) => {
   const { remove } = useRemoveFromWishlist(id);
   return (
-    <Button variant="icon" onClick={() => remove()}>
+    <Button variant="icon_no_bg" onClick={() => remove()}>
       <IoMdClose />
     </Button>
   );
