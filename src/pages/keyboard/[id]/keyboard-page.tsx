@@ -36,12 +36,9 @@ export const KeyboardPage = () => {
             <AddExtraKeycaps profile={keyboardDetails.profile} />
             <AddToCartButton />
             <AddToWishlistButton
-              product={{
-                id: keyboardDetails._id,
-                img: keyboardDetails.images[0].image,
-                name: keyboardDetails.name,
-                price: `$${keyboardDetails.price} USD`,
-              }}
+              type="base"
+              productId={keyboardDetails._id}
+              productType="keyboard"
             />
           </div>
         </main>

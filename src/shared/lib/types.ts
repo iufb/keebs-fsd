@@ -10,3 +10,4 @@ export type filterType = {
   filterSlug: string;
   value: string;
 };
+export type ProductType = "keyboard" | "keycap" | "switches";

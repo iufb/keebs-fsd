@@ -1,8 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { addProductToWishlist, checkIsIn } from "src/shared/api/wishlist";
-import { queryClient } from "src/shared/lib";
+import { queryClient, type ProductType } from "src/shared/lib";
 
-export const useAddToWishlist = (productType: string, productId: string) => {
+export const useAddToWishlist = (
+  productType: ProductType,
+  productId: string,
+) => {
   const { mutate } = useMutation({
     mutationKey: ["add", "wishlist", productId],
     mutationFn: () => addProductToWishlist({ productType, productId }),

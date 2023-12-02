@@ -7,7 +7,7 @@ import {
   signin,
   ISigninResponse,
 } from "src/shared/api/auth";
-import { PATH } from "src/shared/lib";
+import { PATH, queryClient } from "src/shared/lib";
 
 export const useSigninForm = () => {
   const [authData, setAuthData] = useState<ISigninRequest>({
@@ -18,7 +18,11 @@ export const useSigninForm = () => {
     mutationFn: signin,
     onSuccess({ data }: AxiosResponse<ISigninResponse>) {
       localStorage.setItem("accessToken", data.accessToken);
+
       navigate(PATH.account);
+    },
+    onSettled: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["wishlistCount"] });
     },
   });
   const navigate = useNavigate();

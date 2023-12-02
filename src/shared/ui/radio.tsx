@@ -31,7 +31,7 @@ export const Radio: FC<IRadio> = ({ name, price, selected, onClick }) => {
         <CheckIcon className="text-white" />
       </span>
 
-      <span>{name}</span>
+      <span className="max-w-[260px]">{name}</span>
       <span>{price}</span>
     </div>
   );

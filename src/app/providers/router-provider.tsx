@@ -34,7 +34,14 @@ export const RouterProvider = () => {
         },
         { path: PATH.signup, element: <SignUpPage /> },
         { path: PATH.signin, element: <SignInPage /> },
-        { path: PATH.wishlist, element: <WishlistPage /> },
+        {
+          path: PATH.wishlist,
+          element: (
+            <ProtectedRoute>
+              <WishlistPage />
+            </ProtectedRoute>
+          ),
+        },
         { path: PATH.keyboardsCatalog, element: <KeyboardsCatalogPage /> },
         { path: PATH.keyboardDetails(":id"), element: <KeyboardDetails /> },
         { path: PATH.keycapsCatalog, element: <KeycapsCatalogPage /> },

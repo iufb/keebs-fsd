@@ -199,12 +199,20 @@ const Icon = () => (
 );
 export const WishlistIcon = () => {
   const { productsCount } = useProductCount();
-  return (
-    <div className="relative">
-      <Icon />
+  const showProductCount = (): null | JSX.Element => {
+    if (!productsCount && productsCount == 0) {
+      return null;
+    }
+    return (
       <span className="w-5 h-5 flex items-center justify-center text-sm bg-red-600 text-white rounded-full absolute -right-4 -bottom-1 font-bold ">
         {productsCount}
       </span>
+    );
+  };
+  return (
+    <div className="relative">
+      <Icon />
+      {showProductCount()}
     </div>
   );
 };

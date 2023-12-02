@@ -1,5 +1,6 @@
 import { useKeycapStore } from "src/entities/keycap";
 import { KeycapSort } from "src/features/keycap/sort";
+import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button";
 import { PATH } from "src/shared/lib";
 import { Card } from "src/shared/ui";
 import { KeycapFilterSidebar } from "src/widgets/keycap";
@@ -27,6 +28,13 @@ export const KeycapsCatalogPage = () => {
                 rating={5}
                 reviewCount={5}
                 price={keycap.price}
+                buttons={
+                  <AddToWishlistButton
+                    productType="keycap"
+                    productId={keycap._id}
+                    type="icon"
+                  />
+                }
               />
             ))}
           </div>

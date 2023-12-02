@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Checkbox, Radio } from "src/shared/ui";
+import { Radio } from "src/shared/ui";
 import { useExtraKeycaps } from "./queries/use-extra-keycaps";
 interface IAddExtraKeycaps {
   profile: string;
