@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CartIcon } from "src/entities/cart";
 import { WishlistIcon } from "src/entities/wishlist";
 import { PATH } from "src/shared/lib";
 import { UserIcon } from "src/shared/ui/icons";
@@ -12,6 +13,7 @@ export const UserPanel = () => {
       <Link to={PATH.wishlist}>
         <WishlistIcon />
       </Link>
+      <CartIcon />
     </div>
   );
 };

@@ -11,6 +11,17 @@ const skipAuthUrls = [
   Endpoints.AUTH.SIGNUP,
   Endpoints.AUTH.SIGNIN,
   Endpoints.AUTH.REFRESH,
+  Endpoints.KEYBOARD.get,
+  Endpoints.KEYBOARD.byId,
+  Endpoints.KEYBOARD.getFilters,
+  Endpoints.KEYCAP.getFilters,
+  Endpoints.KEYCAP.byId,
+  Endpoints.KEYCAP.get,
+  Endpoints.KEYCAP.byProfile,
+  Endpoints.SWITCHES.byProfile,
+  Endpoints.SWITCHES.get,
+  Endpoints.SWITCHES.getFilters,
+  Endpoints.SWITCHES.byId,
 ];
 instance.interceptors.request.use(async (config) => {
   if (config.url && skipAuthUrls.includes(config.url)) {
@@ -25,20 +36,20 @@ instance.interceptors.request.use(async (config) => {
 
   return config;
 });
-instance.interceptors.response.use(
-  (response: AxiosResponse) => response,
-  async (error: AxiosError) => {
-    const isLoggedIn = !!localStorage.getItem("accessToken");
-
-    if (
-      error.response?.status === 401 &&
-      isLoggedIn &&
-      error.request.url !== Endpoints.AUTH.LOGOUT
-    ) {
-      await logout();
-    }
-
-    throw error;
-  },
-);
+// instance.interceptors.response.use(
+//   (response: AxiosResponse) => response,
+//   async (error: AxiosError) => {
+//     const isLoggedIn = !!localStorage.getItem("accessToken");
+//
+//     if (
+//       error.response?.status === 401 &&
+//       isLoggedIn &&
+//       error.request.url !== Endpoints.AUTH.LOGOUT
+//     ) {
+//       await logout();
+//     }
+//
+//     throw error;
+//   },
+// );
 export default instance;

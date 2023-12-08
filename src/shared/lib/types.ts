@@ -11,3 +11,4 @@ export type filterType = {
   value: string;
 };
 export type ProductType = "keyboard" | "keycap" | "switches";
+export type ActionType = "increase" | "decrease";

@@ -30,4 +30,9 @@ export const Endpoints = {
     isIn: (id: string) => `/wishlist/${id}`,
     count: "/wishlist/count",
   },
+  CART: {
+    getCart: "/cart",
+    add: "/cart/add",
+    updateQuantity: (id: string) => `/cart/quantity/${id}`,
+  },
 };

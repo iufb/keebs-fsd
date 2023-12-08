@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { AddToCartButton } from "src/features/cart/add-to-card-button/add-to-cart-button";
 import { AddExtraKeycaps } from "src/features/keyboard/add-extra-keycaps";
 import { ColorPick } from "src/features/keyboard/color-pick";
@@ -9,6 +9,9 @@ import { useKeyboardDetails } from "./queries/use-keyboard-details";
 
 export const KeyboardPage = () => {
   const { id } = useParams();
+  const [searchParams] = useSearchParams();
+  const color = searchParams.get("color");
+  const switchType = searchParams.get("switch");
   if (!id) return <div>error</div>;
   const { keyboardDetails, isLoading, error } = useKeyboardDetails(id);
 
@@ -27,14 +30,17 @@ export const KeyboardPage = () => {
               {keyboardDetails.description}
             </p>
             <span className="text-2xl">${keyboardDetails.price}</span>
-            {keyboardDetails.colors.length > 0 ? (
+            {keyboardDetails.colors.length > 0 && (
               <ColorPick colors={keyboardDetails.colors} />
-            ) : (
-              <></>
             )}
             <SwitchPick profile={keyboardDetails.profile} />
             <AddExtraKeycaps profile={keyboardDetails.profile} />
-            <AddToCartButton />
+            <AddToCartButton
+              productType="keyboard"
+              productId={keyboardDetails._id}
+              color={color ?? keyboardDetails.colors[0]?.name}
+              switches={switchType ?? ""}
+            />
             <AddToWishlistButton
               type="base"
               productId={keyboardDetails._id}

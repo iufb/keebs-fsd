@@ -1,136 +1,123 @@
-import { useProductCount } from "../queries/use-product-count";
+import { FC, HTMLAttributes } from "react";
+import { useCartStore } from "../store";
+import { CartModal } from "./cart-modal";
 
-const Icon = () => (
+const Icon: FC<HTMLAttributes<HTMLOrSVGElement>> = ({ onClick, className }) => (
   <svg
-    className="w-5 h-5"
-    viewBox="0 0 102.06 102.04"
+    className={`w-5 h-5 ${className}`}
+    onClick={onClick}
+    viewBox="0 0 102.03 102.04"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <title>Wishlist</title>
+    <title>Cart</title>
     <g id="页面-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g
         id="官网像素icon"
-        transform="translate(-386.820000, 0.000000)"
+        transform="translate(-586.800000, 0.000000)"
         fill="#040000"
         fillRule="nonzero"
       >
-        <g id="编组" transform="translate(386.820000, 0.000000)">
+        <g id="编组" transform="translate(586.800000, 0.000000)">
           <rect
             id="矩形"
-            x="91.55"
-            y="52.3"
+            x="91.52"
+            y="78.45"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="91.55"
-            y="39.22"
+            x="91.52"
+            y="65.37"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="91.55"
-            y="26.14"
+            x="91.52"
+            y="52.32"
+            width="10.51"
+            height="10.48"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="91.52"
+            y="39.24"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="91.55"
+            x="78.44"
+            y="91.53"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="78.44"
+            y="26.16"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="65.36"
+            y="91.53"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="65.36"
+            y="39.24"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="65.36"
+            y="26.16"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="65.36"
             y="13.08"
             width="10.51"
-            height="10.49"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="78.49"
-            y="65.38"
-            width="10.49"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="78.49"
-            y="13.08"
-            width="10.49"
-            height="10.49"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="78.49"
-            y="0"
-            width="10.49"
-            height="10.51"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="65.41"
-            y="78.47"
-            width="10.49"
-            height="10.51"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="65.41"
-            y="0"
-            width="10.49"
-            height="10.51"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="52.33"
-            y="91.55"
-            width="10.51"
-            height="10.49"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="52.33"
-            y="13.08"
-            width="10.51"
-            height="10.49"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="39.25"
-            y="91.55"
-            width="10.51"
-            height="10.49"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="39.25"
-            y="13.08"
-            width="10.51"
-            height="10.49"
-            rx="5.24"
-          ></rect>
-          <rect
-            id="矩形"
-            x="26.16"
-            y="78.47"
+            x="52.29"
+            y="91.53"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="26.16"
+            x="52.29"
+            y="26.16"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="52.29"
             y="0"
             width="10.51"
             height="10.51"
@@ -138,23 +125,23 @@ const Icon = () => (
           ></rect>
           <rect
             id="矩形"
-            x="13.08"
-            y="65.38"
+            x="39.23"
+            y="91.53"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="13.08"
-            y="13.08"
+            x="39.23"
+            y="26.16"
             width="10.51"
-            height="10.49"
+            height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="13.08"
+            x="39.23"
             y="0"
             width="10.51"
             height="10.51"
@@ -162,34 +149,82 @@ const Icon = () => (
           ></rect>
           <rect
             id="矩形"
-            x="-5.68434189e-14"
-            y="52.3"
+            x="26.15"
+            y="91.53"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="-5.68434189e-14"
-            y="39.22"
+            x="26.15"
+            y="39.24"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="-5.68434189e-14"
-            y="26.14"
+            x="26.15"
+            y="26.16"
             width="10.51"
             height="10.51"
             rx="5.24"
           ></rect>
           <rect
             id="矩形"
-            x="-5.68434189e-14"
+            x="26.15"
             y="13.08"
             width="10.51"
-            height="10.49"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="13.07"
+            y="91.53"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="13.07"
+            y="26.16"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="0"
+            y="78.45"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="0"
+            y="65.37"
+            width="10.51"
+            height="10.51"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="0"
+            y="52.32"
+            width="10.51"
+            height="10.48"
+            rx="5.24"
+          ></rect>
+          <rect
+            id="矩形"
+            x="0"
+            y="39.24"
+            width="10.51"
+            height="10.51"
             rx="5.24"
           ></rect>
         </g>
@@ -197,26 +232,14 @@ const Icon = () => (
     </g>
   </svg>
 );
-export const WishlistIcon = () => {
-  const { productsCount, isLoading, error } = useProductCount();
-  const showProductCount = (): null | JSX.Element => {
-    if (error || isLoading) {
-      return null;
-    }
-    if (!productsCount && productsCount == 0) {
-      return null;
-    }
-
-    return (
-      <span className="w-5 h-5 flex items-center justify-center text-sm bg-red-600 text-white rounded-full absolute -right-4 -bottom-1 font-bold ">
-        {productsCount}
-      </span>
-    );
-  };
+export const CartIcon = () => {
+  const { isShow, showCart } = useCartStore((state) => ({
+    showCart: state.toggle,
+    isShow: state.isShow,
+  }));
   return (
-    <div className="relative">
-      <Icon />
-      {showProductCount()}
+    <div className="relative cursor-pointer">
+      <Icon onClick={() => showCart(true)} /> {isShow && <CartModal />}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useCartStore } from "src/entities/cart/store";
 import { Radio } from "src/shared/ui";
 import { useExtraKeycaps } from "./queries/use-extra-keycaps";
 interface IAddExtraKeycaps {
@@ -6,12 +7,18 @@ interface IAddExtraKeycaps {
 }
 export const AddExtraKeycaps: FC<IAddExtraKeycaps> = ({ profile }) => {
   const { keycaps, isLoading, error } = useExtraKeycaps(profile);
+  const { addToCart, removeFromCart } = useCartStore((state) => ({
+    addToCart: state.addItem,
+    removeFromCart: state.removeItem,
+  }));
   const [selectedKeycaps, setSelectedKeycaps] = useState<string[]>([]);
   const addKeycap = (id: string) => {
     if (selectedKeycaps.includes(id)) {
       setSelectedKeycaps(selectedKeycaps.filter((keycap) => keycap !== id));
+      removeFromCart(id);
       return;
     }
+    addToCart({ productId: id, productType: "keycap" });
     setSelectedKeycaps([...selectedKeycaps, id]);
   };
   const isSelected = (id: string) => {
