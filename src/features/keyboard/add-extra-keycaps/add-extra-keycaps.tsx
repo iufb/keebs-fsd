@@ -18,7 +18,7 @@ export const AddExtraKeycaps: FC<IAddExtraKeycaps> = ({ profile }) => {
       removeFromCart(id);
       return;
     }
-    addToCart({ productId: id, productType: "keycap" });
+    addToCart({ productId: id, productType: "keycaps" });
     setSelectedKeycaps([...selectedKeycaps, id]);
   };
   const isSelected = (id: string) => {

@@ -36,7 +36,7 @@ export const KeyboardPage = () => {
             <SwitchPick profile={keyboardDetails.profile} />
             <AddExtraKeycaps profile={keyboardDetails.profile} />
             <AddToCartButton
-              productType="keyboard"
+              productType="keyboards"
               productId={keyboardDetails._id}
               color={color ?? keyboardDetails.colors[0]?.name}
               switches={switchType ?? ""}
@@ -44,7 +44,7 @@ export const KeyboardPage = () => {
             <AddToWishlistButton
               type="base"
               productId={keyboardDetails._id}
-              productType="keyboard"
+              productType="keyboards"
             />
           </div>
         </main>

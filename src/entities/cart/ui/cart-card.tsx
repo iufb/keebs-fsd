@@ -1,18 +1,20 @@
 import { FC } from "react";
-import { CustomImage } from "src/shared/ui";
 import { IGetCartItem } from "../model";
-
-export const CartCard: FC<IGetCartItem> = (product) => {
-  const { img, name, quantity, extra, price } = product;
+interface ICartCard {
+  product: IGetCartItem;
+  updateQuantity: JSX.Element;
+}
+export const CartCard: FC<ICartCard> = ({ product, updateQuantity }) => {
+  const { img, name, extra, price } = product;
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 w-full">
       <img src={img} alt={name} className="w-20 h-20" />
-      <div>
+      <div className="w-full pr-2">
         <span className="block">{name}</span>
         <span>{extra?.color}/</span>
         <span>{extra?.switches}</span>
         <div className="flex justify-between">
-          <span>{quantity}</span>
+          {updateQuantity}
           <span>${price}</span>
         </div>
       </div>

@@ -22,7 +22,7 @@ export const KeycapPage = () => {
             <AddToWishlistButton
               type="base"
               productId={keycapDetails._id}
-              productType="keycap"
+              productType="keycaps"
             />
           </div>
         </main>

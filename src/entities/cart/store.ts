@@ -1,8 +1,10 @@
 import { create } from "zustand";
 import { devtools } from "zustand/middleware";
-import { ICartItem } from "./model";
+import { ICartItem, IGetCartItem } from "./model";
 interface CartStoreState {
   products: ICartItem[];
+  totalPrice: number;
+  calculateTotalPrice: (products?: IGetCartItem[]) => number;
   isShow: boolean;
   toggle: (show: boolean) => void;
   addItem: (item: ICartItem) => void;
@@ -11,8 +13,16 @@ interface CartStoreState {
 export const useCartStore = create<CartStoreState>()(
   devtools((set, get) => ({
     products: [],
+    totalPrice: 0,
     isShow: false,
     toggle: (show) => set({ isShow: show }),
+    calculateTotalPrice: (products) => {
+      if (!products) return 0;
+      return products.reduce(
+        (acc, value) => acc + value.price * value.quantity,
+        0
+      );
+    },
     addItem: (item) => {
       const addedProductIndex = get().products.findIndex(
         (product) => product.productId == item.productId

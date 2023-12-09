@@ -33,6 +33,7 @@ export const Endpoints = {
   CART: {
     getCart: "/cart",
     add: "/cart/add",
-    updateQuantity: (id: string) => `/cart/quantity/${id}`,
+    updateQuantity: `/cart/quantity/`,
+    total: "/cart/total",
   },
 };
