@@ -15,6 +15,7 @@ export const useAddToCart = (item: ICartItem) => {
     onSuccess: () => {
       showCart(true);
       queryClient.invalidateQueries({ queryKey: ["getCart"] });
+      queryClient.invalidateQueries({ queryKey: ["cartCount"] });
     },
   });
   return { addToCart: mutate };

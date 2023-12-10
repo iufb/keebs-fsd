@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { AddToCartButton } from "src/features/cart/add-to-card-button";
 import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button";
 import { ImageGallery } from "src/widgets/image-gallery";
 import { useKeycapDetails } from "./queries/use-keycap-details";
@@ -20,6 +21,11 @@ export const KeycapPage = () => {
             </h1>
             <span className="text-2xl">${keycapDetails.price}</span>
             <AddToWishlistButton
+              type="base"
+              productId={keycapDetails._id}
+              productType="keycaps"
+            />
+            <AddToCartButton
               type="base"
               productId={keycapDetails._id}
               productType="keycaps"

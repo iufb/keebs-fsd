@@ -2,24 +2,22 @@ import { useQuery } from "@tanstack/react-query";
 import { getCart } from "src/shared/api/cart";
 import { getErrorMessage } from "src/shared/lib/utils";
 import { IGetCartItem } from "../model";
-import { useCartStore } from "../store";
 
 export const useGetCart = () => {
-  const { calculateTotalPrice } = useCartStore((state) => ({
-    calculateTotalPrice: state.calculateTotalPrice,
-  }));
   const { data, isLoading, error } = useQuery({
     queryKey: ["getCart"],
     queryFn: async () => {
-      const { data } = await getCart<IGetCartItem[]>();
+      const { data } = await getCart<{
+        products: IGetCartItem[];
+        total: number;
+      }>();
       return data;
     },
   });
-  const total = calculateTotalPrice(data) / 2;
   return {
-    cart: data,
+    cart: data?.products,
     isLoading,
     error: getErrorMessage(error),
-    total,
+    total: data?.total,
   };
 };

@@ -1,4 +1,5 @@
 import { useKeyboardStore } from "src/entities/keyboard";
+import { AddToCartButton } from "src/features/cart/add-to-card-button";
 import { KeyboardSort } from "src/features/keyboard/sort";
 import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button/add-to-wishlist-button";
 import { PATH } from "src/shared/lib";
@@ -30,11 +31,18 @@ export const KeyboardsCatalogPage = () => {
                 reviewCount={5}
                 price={keyboard.price}
                 buttons={
-                  <AddToWishlistButton
-                    productId={keyboard._id}
-                    type="icon"
-                    productType="keyboard"
-                  />
+                  <>
+                    <AddToWishlistButton
+                      productId={keyboard._id}
+                      type="icon"
+                      productType="keyboards"
+                    />
+                    <AddToCartButton
+                      productId={keyboard._id}
+                      type="icon"
+                      productType="keyboards"
+                    />
+                  </>
                 }
               />
             ))}

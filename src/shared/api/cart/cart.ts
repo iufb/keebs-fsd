@@ -9,6 +9,9 @@ export function getCart<T>() {
 export function getTotalPrice<T>() {
   return instance.get<T>(Endpoints.CART.total);
 }
+export function getTotalCount() {
+  return instance.get<number>(Endpoints.CART.totalCount);
+}
 export function addToCart<T>(cartItem: T) {
   return instance.post(Endpoints.CART.add, cartItem);
 }

@@ -38,7 +38,7 @@ export const CartModal = () => {
       </div>
       <div className="flex justify-between text-xl font-bold">
         <span>Subtotal</span>
-        <span>{total.toFixed(2)}</span>
+        <span>{total?.toFixed(2)}</span>
       </div>
       <Button variant="primary" onClick={() => navigate(PATH.checkout)}>
         Checkout

@@ -1,4 +1,5 @@
 import { FC, HTMLAttributes } from "react";
+import { useCartCount } from "../queries/use-cart-count";
 import { useCartStore } from "../store";
 import { CartModal } from "./cart-modal";
 
@@ -237,9 +238,24 @@ export const CartIcon = () => {
     showCart: state.toggle,
     isShow: state.isShow,
   }));
+  const { productsCount, isLoading, error } = useCartCount();
+  const showProductCount = (): null | JSX.Element => {
+    if (error || isLoading) {
+      return null;
+    }
+    if (!productsCount && productsCount == 0) {
+      return null;
+    }
+    return (
+      <span className="w-5 h-5 flex items-center justify-center text-sm bg-green-600 text-white rounded-full absolute -right-4 -bottom-1 font-bold ">
+        {productsCount}
+      </span>
+    );
+  };
   return (
     <div className="relative cursor-pointer">
       <Icon onClick={() => showCart(true)} /> {isShow && <CartModal />}
+      {showProductCount()}
     </div>
   );
 };

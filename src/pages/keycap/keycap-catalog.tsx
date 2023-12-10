@@ -1,4 +1,5 @@
 import { useKeycapStore } from "src/entities/keycap";
+import { AddToCartButton } from "src/features/cart/add-to-card-button";
 import { KeycapSort } from "src/features/keycap/sort";
 import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button";
 import { PATH } from "src/shared/lib";
@@ -29,11 +30,18 @@ export const KeycapsCatalogPage = () => {
                 reviewCount={5}
                 price={keycap.price}
                 buttons={
-                  <AddToWishlistButton
-                    productType="keycap"
-                    productId={keycap._id}
-                    type="icon"
-                  />
+                  <>
+                    <AddToWishlistButton
+                      productType="keycaps"
+                      productId={keycap._id}
+                      type="icon"
+                    />
+                    <AddToCartButton
+                      productType="keycaps"
+                      productId={keycap._id}
+                      type="icon"
+                    />
+                  </>
                 }
               />
             ))}

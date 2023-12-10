@@ -1,1 +1,7 @@
-export { getCart, addToCart, updateQuantity, getTotalPrice } from "./cart";
+export {
+  getCart,
+  addToCart,
+  updateQuantity,
+  getTotalPrice,
+  getTotalCount,
+} from "./cart";

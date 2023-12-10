@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { AddToCartButton } from "src/features/cart/add-to-card-button";
+import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button";
 import { ImageGallery } from "src/widgets/image-gallery";
 import { useSwitchesDetails } from "./queries/use-switches-details";
 
@@ -18,6 +20,16 @@ export const SwitchesPage = () => {
               {switchesDetails.name}
             </h1>
             <span className="text-2xl">${switchesDetails.price}</span>
+            <AddToWishlistButton
+              type="base"
+              productId={switchesDetails._id}
+              productType="keycaps"
+            />
+            <AddToCartButton
+              type="base"
+              productId={switchesDetails._id}
+              productType="keycaps"
+            />
           </div>
         </main>
       )}

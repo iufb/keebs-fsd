@@ -16,14 +16,23 @@ export const WishlistPage = () => {
       {wishlistProducts?.length == 0 && <div>Wishlist is empty</div>}
       <div className="grid grid-cols-4 gap-5">
         {wishlistProducts &&
-          wishlistProducts.map((product) => (
-            <WishlistCard
-              key={product.id}
-              product={product}
-              addToCartbutton={<AddToCartButton />}
-              remove={<RemoveFromWishlistButton id={product.id} />}
-            />
-          ))}
+          wishlistProducts.map((product) => {
+            if (!product) return;
+            return (
+              <WishlistCard
+                key={product.id}
+                product={product}
+                addToCartbutton={
+                  <AddToCartButton
+                    productId={product.id}
+                    type="base"
+                    productType={product.productType}
+                  />
+                }
+                remove={<RemoveFromWishlistButton id={product.id} />}
+              />
+            );
+          })}
       </div>
     </section>
   );

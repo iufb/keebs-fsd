@@ -37,6 +37,7 @@ export const KeyboardPage = () => {
             <AddExtraKeycaps profile={keyboardDetails.profile} />
             <AddToCartButton
               productType="keyboards"
+              type="base"
               productId={keyboardDetails._id}
               color={color ?? keyboardDetails.colors[0]?.name}
               switches={switchType ?? ""}

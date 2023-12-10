@@ -35,5 +35,6 @@ export const Endpoints = {
     add: "/cart/add",
     updateQuantity: `/cart/quantity/`,
     total: "/cart/total",
+    totalCount: "/cart/totalCount",
   },
 };
