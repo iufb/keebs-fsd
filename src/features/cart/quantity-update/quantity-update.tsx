@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Button } from "src/shared/ui";
+import { Button, Loader } from "src/shared/ui";
 import { useUpdateQuantity } from "./queries/use-quantity-update";
 interface IQuantityUpdate {
   id: string;
@@ -7,7 +7,7 @@ interface IQuantityUpdate {
 }
 export const QuantityUpdate: FC<IQuantityUpdate> = ({ id, quantity }) => {
   const { updateQuantity, isLoading, error } = useUpdateQuantity(id);
-  //TODO LAODING
+  if (isLoading) return <Loader />;
   if (error) return <div>{error.message}</div>;
   return (
     <div className="flex gap-1 items-center">

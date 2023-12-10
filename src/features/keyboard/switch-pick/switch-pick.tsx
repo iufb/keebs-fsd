@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Capitalize } from "src/shared/lib/utils";
-import { Option } from "src/shared/ui";
+import { Loader, Option } from "src/shared/ui";
 import { useSwitchPick } from "./queries/use-switch-pick";
 
 interface ISwitchPick {
@@ -17,8 +17,7 @@ export const SwitchPick: FC<ISwitchPick> = ({ profile }) => {
     setSelected(name);
   };
   if (error) return <div>{error}</div>;
-  //TODO: Loading
-  if (isLoading) return <div>...olaoign</div>;
+  if (isLoading) return <Loader />;
   return (
     <>
       <h3 className="h3">{`${Capitalize(profile)}-Profile Switch`}</h3>

@@ -1,13 +1,13 @@
 import { WishlistCard } from "src/entities/wishlist";
 import { AddToCartButton } from "src/features/cart/add-to-card-button";
 import { RemoveFromWishlistButton } from "src/features/wishlist/remove-from-wishlist-button";
+import { Loader } from "src/shared/ui";
 import { useWishlistProducts } from "./queries/use-wishlist-products";
 
 export const WishlistPage = () => {
   const { wishlistProducts, isLoading, errorMessage } = useWishlistProducts();
   if (errorMessage) return <div>{errorMessage}</div>;
-  //TODO: Loading
-  if (isLoading) return <div>...olaoign</div>;
+  if (isLoading) return <Loader />;
 
   console.log(wishlistProducts);
   return (

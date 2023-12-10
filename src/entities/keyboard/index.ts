@@ -1,2 +1,2 @@
-export type { IKeyboard, IImage, IKeyboardColor, filterType } from "./model";
+export type { IKeyboard, IImage, IKeyboardColor, IHeroKeyboard } from "./model";
 export { useKeyboardStore } from "./store";

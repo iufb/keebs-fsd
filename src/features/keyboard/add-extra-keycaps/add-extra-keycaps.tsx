@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useCartStore } from "src/entities/cart/store";
-import { Radio } from "src/shared/ui";
+import { Loader, Radio } from "src/shared/ui";
 import { useExtraKeycaps } from "./queries/use-extra-keycaps";
 interface IAddExtraKeycaps {
   profile: string;
@@ -25,8 +25,7 @@ export const AddExtraKeycaps: FC<IAddExtraKeycaps> = ({ profile }) => {
     return selectedKeycaps.findIndex((k) => k == id) !== -1;
   };
   if (error) return <div>{error}</div>;
-  //TODO: Loading
-  if (isLoading) return <div>...olaoign</div>;
+  if (isLoading) <Loader />;
 
   return (
     <>

@@ -1,4 +1,5 @@
 import { FC, HTMLAttributes } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartCount } from "../queries/use-cart-count";
 import { useCartStore } from "../store";
 import { CartModal } from "./cart-modal";
@@ -238,6 +239,8 @@ export const CartIcon = () => {
     showCart: state.toggle,
     isShow: state.isShow,
   }));
+  const isLogged = localStorage.getItem("accessToken");
+  const navigate = useNavigate();
   const { productsCount, isLoading, error } = useCartCount();
   const showProductCount = (): null | JSX.Element => {
     if (error || isLoading) {
@@ -252,9 +255,16 @@ export const CartIcon = () => {
       </span>
     );
   };
+  const showUserCart = () => {
+    if (!isLogged) {
+      navigate("/signin");
+      return;
+    }
+    showCart(true);
+  };
   return (
     <div className="relative cursor-pointer">
-      <Icon onClick={() => showCart(true)} /> {isShow && <CartModal />}
+      <Icon onClick={showUserCart} /> {isShow && <CartModal />}
       {showProductCount()}
     </div>
   );

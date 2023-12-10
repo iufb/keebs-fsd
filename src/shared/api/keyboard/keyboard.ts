@@ -7,6 +7,10 @@ export function getKeyboardById<T>(id: string) {
 export function getKeyboardFilters<T>() {
   return instance.get<T>(Endpoints.KEYBOARD.getFilters);
 }
+export function getHeroKeyboards<T>() {
+  return instance.get<T>(Endpoints.KEYBOARD.getHeroKeyboards);
+}
+
 export function getKeyboards<T, M>(params?: {
   filters?: M;
   sort?: "asc" | "desc";

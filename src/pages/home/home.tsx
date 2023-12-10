@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-import { PATH } from "src/shared/lib";
+import { Carousel } from "src/widgets/carousel";
 
 export const HomePage = () => {
   return (
     <div>
-      home <Link to={PATH.keyboardsCatalog}>keyboads</Link>
+      <Carousel />
     </div>
   );
 };

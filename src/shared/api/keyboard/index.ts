@@ -1,1 +1,6 @@
-export { getKeyboardById, getKeyboardFilters, getKeyboards } from "./keyboard";
+export {
+  getKeyboardById,
+  getKeyboardFilters,
+  getKeyboards,
+  getHeroKeyboards,
+} from "./keyboard";

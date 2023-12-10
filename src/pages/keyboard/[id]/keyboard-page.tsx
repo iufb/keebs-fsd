@@ -4,6 +4,7 @@ import { AddExtraKeycaps } from "src/features/keyboard/add-extra-keycaps";
 import { ColorPick } from "src/features/keyboard/color-pick";
 import { SwitchPick } from "src/features/keyboard/switch-pick";
 import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button/add-to-wishlist-button";
+import { Loader } from "src/shared/ui";
 import { ImageGallery } from "src/widgets/image-gallery";
 import { useKeyboardDetails } from "./queries/use-keyboard-details";
 
@@ -17,8 +18,7 @@ export const KeyboardPage = () => {
 
   return (
     <div>
-      {/* TODO:loading */}
-      {isLoading && <div>Loaidng</div>}
+      {isLoading && <Loader />}
       {keyboardDetails && (
         <main className="flex gap-x-20">
           <ImageGallery images={keyboardDetails.images} />

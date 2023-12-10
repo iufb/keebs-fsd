@@ -8,9 +8,9 @@ export const useUpdateQuantity = (id: string) => {
     mutationFn: (action: ActionType) => updateQuantity(id, action),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["getCart"] });
+      await queryClient.invalidateQueries({ queryKey: ["cartCount"] });
     },
   });
-
   return {
     updateQuantity: mutate,
     isLoading: isPending,

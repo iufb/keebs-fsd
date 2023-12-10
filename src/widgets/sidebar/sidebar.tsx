@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Divider } from "src/shared/ui";
+import { Divider, Loader } from "src/shared/ui";
 interface ISidebar {
   title: string;
   isLoading: boolean;
@@ -8,8 +8,7 @@ interface ISidebar {
 export const Sidebar: FC<ISidebar> = ({ title, isLoading, children }) => {
   return (
     <section>
-      {/* TODO:loafding */}
-      {isLoading && <div>loading..</div>}
+      {isLoading && <Loader />}
       <h2 className="h2">{title}</h2>
       <Divider />
       <div className="col gap-4">{children}</div>

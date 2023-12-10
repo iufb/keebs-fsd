@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { AddToCartButton } from "src/features/cart/add-to-card-button";
 import { AddToWishlistButton } from "src/features/wishlist/add-to-wishlist-button";
+import { Loader } from "src/shared/ui";
 import { ImageGallery } from "src/widgets/image-gallery";
 import { useKeycapDetails } from "./queries/use-keycap-details";
 
@@ -10,8 +11,7 @@ export const KeycapPage = () => {
   const { keycapDetails, isLoading, error } = useKeycapDetails(id);
   return (
     <div>
-      {/* TODO:loading */}
-      {isLoading && <div>Loaidng</div>}
+      {isLoading && <Loader />}
       {keycapDetails && (
         <main className="flex gap-x-20">
           <ImageGallery images={keycapDetails.images} />

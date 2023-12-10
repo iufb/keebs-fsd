@@ -28,7 +28,12 @@ export interface IImage {
   image: string;
   color?: string;
 }
-
+export interface IHeroKeyboard {
+  id: string;
+  img: string;
+  name: string;
+  desc: string;
+}
 export interface IMaterials {
   frame: string;
   bottomCase: string;

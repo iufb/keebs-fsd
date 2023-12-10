@@ -10,6 +10,7 @@ export const Endpoints = {
     get: "/keyboard",
     byId: (id: string) => `/keyboard/${id}`,
     getFilters: "/keyboard/filters",
+    getHeroKeyboards: "/keyboard/hero",
   },
   KEYCAP: {
     get: "/keycap",

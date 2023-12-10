@@ -3,7 +3,7 @@ import { PATH } from "src/shared/lib";
 import { CartCard } from "./cart-card";
 import { IoMdClose } from "react-icons/io";
 import { useCartStore } from "../store";
-import { Button } from "src/shared/ui";
+import { Button, Loader } from "src/shared/ui";
 import { useGetCart } from "../queries/use-get-cart";
 import { QuantityUpdate } from "src/features/cart/quantity-update";
 export const CartModal = () => {
@@ -22,19 +22,23 @@ export const CartModal = () => {
         <span className="text-lg font-bold">Close</span>
         <IoMdClose size={20} />
       </Button>
-      <div className="col gap-2 overflow-y-scroll max-h-[300px]">
-        {/* TODO: LOADING */}
-        {isLoading && <div>Laoding...</div>}
+      <div
+        className={`col min-h-[50px] gap-2 ${
+          cart?.length > 3 && " overflow-y-scroll"
+        } max-h-[300px]`}
+      >
+        {isLoading && <Loader />}
         {error && <div>{error}</div>}
-        {cart?.map((product) => (
-          <CartCard
-            key={product.id}
-            product={product}
-            updateQuantity={
-              <QuantityUpdate id={product.id} quantity={product.quantity} />
-            }
-          />
-        ))}
+        {cart &&
+          cart.map((product) => (
+            <CartCard
+              key={product.id}
+              product={product}
+              updateQuantity={
+                <QuantityUpdate id={product.id} quantity={product.quantity} />
+              }
+            />
+          ))}
       </div>
       <div className="flex justify-between text-xl font-bold">
         <span>Subtotal</span>

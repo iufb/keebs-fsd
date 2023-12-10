@@ -20,12 +20,11 @@ export const Button: FC<buttonType> = ({
         {
           primary:
             "w-full bg-primary rounded-md px-4 h-14 text-secondary font-bold text-lg uppercase ",
-          //TODO: outlined btn
           outlined:
-            " w-full bg-background px-4 rounded-md border border-gray-900 flex justify-center items-center gap-3 uppercase  h-14 text-black font-bold",
+            "w-full bg-background px-4 rounded-md border border-gray-900 flex justify-center items-center text-xl gap-3 uppercase  h-14 text-black font-bold",
           icon_no_bg: "bg-inherit  text-xl",
           icon: " w-10 h-10 px-[10px]  rounded-full   shadow-lg bg-background  ",
-        }[variant],
+        }[variant]
       )}
       type={type}
       {...props}

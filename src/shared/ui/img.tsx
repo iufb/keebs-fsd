@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { Loader } from "./loader";
 
 interface IImage
   extends DetailedHTMLProps<
@@ -32,15 +33,16 @@ export const CustomImage: FC<IImage> = ({
   }, [src]);
   return (
     <>
-      {/* TODO: LOADIng */}
       {isLoading ? (
         <div
-          className={` rounded-md   bg-gray-100`}
+          className={` rounded-md   bg-gray-100 center`}
           style={{
             width: size,
             height: size,
           }}
-        />
+        >
+          <Loader />
+        </div>
       ) : (
         <img
           className={className}
