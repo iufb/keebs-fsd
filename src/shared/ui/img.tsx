@@ -44,13 +44,7 @@ export const CustomImage: FC<IImage> = ({
           <Loader />
         </div>
       ) : (
-        <img
-          className={className}
-          src={src}
-          alt={alt}
-          {...props}
-          loading="lazy"
-        />
+        <img className={className} src={src} alt={alt} {...props} />
       )}
     </>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Loader } from "src/shared/ui";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { useHeroKeyboards } from "../queries/use-hero-keyboards";
@@ -7,6 +7,10 @@ import { CarouselItem } from "./carousel-item";
 export const Carousel = () => {
   const [selected, setSelected] = useState<number>(0);
   const { items, isLoading, error } = useHeroKeyboards();
+  useEffect(() => {
+    const interval = setInterval(next, 10000);
+    return () => clearInterval(interval);
+  }, [selected]);
   const next = () => {
     if (!items) return;
     if (selected == items.length - 1) {
@@ -35,11 +39,12 @@ export const Carousel = () => {
             img={item.img}
             name={item.name}
             desc={item.desc}
-            key={index}
+            key={item.id}
+            selected={selected}
           />
         );
       })}
-      <div className="flex absolute gap-5 right-[10vw] -bottom-5">
+      <div className="flex z-40 absolute gap-5 right-[10vw] -bottom-5">
         <Button variant="icon" onClick={back} className="hover:scale-110">
           <IoChevronBack size={20} />
         </Button>
