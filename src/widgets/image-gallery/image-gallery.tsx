@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import {
   DetailedHTMLProps,
   FC,
@@ -6,6 +7,7 @@ import {
   useState,
 } from "react";
 import { useSearchParams } from "react-router-dom";
+import useMeasure from "react-use-measure";
 import { IImage } from "src/entities/keyboard";
 import { CustomImage } from "src/shared/ui";
 
@@ -26,6 +28,7 @@ interface IImageGallery
 
 export const ImageGallery: FC<IImageGallery> = ({ images }) => {
   const [selected, setSelected] = useState(0);
+  const [ref, { width }] = useMeasure();
   const [searchParams] = useSearchParams();
   const colorQuery = searchParams.get("color");
   const changeImage = (idx: number) => {
@@ -42,7 +45,7 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
   }, [colorQuery]);
   const baseImage = getImg(images, selected);
   return (
-    <div className="grid grid-cols-imageGallery gap-x-5 w-fit h-full ">
+    <div className="grid grid-cols-imageGallery gap-x-5 w-fit h-full   ">
       <div className="col grow-0 gap-2 w-20 max-w-full max-h-fit ">
         {images.map((img, idx) => {
           let i;
@@ -63,12 +66,24 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
           );
         })}
       </div>
-      <CustomImage
-        size={920}
-        src={baseImage}
-        alt="keyboard"
-        className="w-[920px]  rounded-lg"
-      />
+      <AnimatePresence>
+        <div className="overflow-hidden" ref={ref}>
+          <motion.div
+            key={selected}
+            initial={{ x: width }}
+            animate={{ x: 0 }}
+            exit={{ x: -width }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+          >
+            <CustomImage
+              size={920}
+              src={baseImage}
+              alt="keyboard"
+              className="w-[920px]  rounded-lg"
+            />
+          </motion.div>
+        </div>
+      </AnimatePresence>
     </div>
   );
 };

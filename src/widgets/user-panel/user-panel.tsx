@@ -6,7 +6,7 @@ import { UserIcon } from "src/shared/ui/icons";
 
 export const UserPanel = () => {
   return (
-    <div className="flex gap-10">
+    <div className="flex lg:gap-10 gap-6">
       <Link to={PATH.account}>
         <UserIcon />
       </Link>

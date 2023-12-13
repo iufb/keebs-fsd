@@ -20,7 +20,7 @@ export const KeyboardPage = () => {
     <div>
       {isLoading && <Loader />}
       {keyboardDetails && (
-        <main className="flex gap-x-20">
+        <main className="pageLayout">
           <ImageGallery images={keyboardDetails.images} />
           <div className="col gap-3">
             <h1 className="text-[42px] font-bold font-roboto">

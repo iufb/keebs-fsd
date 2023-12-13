@@ -27,10 +27,6 @@ export const CarouselItem: FC<ICarouselItem> = ({
     center: {
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.7,
-        type: "tween",
-      },
     },
   };
   const textVariants = {
@@ -54,6 +50,11 @@ export const CarouselItem: FC<ICarouselItem> = ({
         variants={imageVariants}
         initial="enter"
         animate="center"
+        transition={{
+          duration: 1,
+          type: "tween",
+          ease: "easeOut",
+        }}
         className="rounded-lg overflow-hidden relative 2xl:max-h-[615px] xl:max-h-[575px] lg:max-h-[500px] md:max-h-[450px] sm:max-h-[390px] max-h-[350px] w-full"
       >
         <div className="bg-black h-full absolute z-20 top-0 left-0 w-full opacity-40" />

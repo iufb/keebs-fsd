@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { FilterItem } from "src/entities/filter";
 import { useKeycapStore } from "src/entities/keycap";
 import { Checkbox } from "src/shared/ui";
 import { ArrowIcon } from "src/shared/ui/icons";
@@ -24,27 +25,18 @@ export const KeycapFilterOptions: FC<IKeycapFilterOptions> = ({
     toggleFilter(slug, newValue);
     update();
   };
+  const showContent = () => {
+    setShow((prev) => !prev);
+  };
   return (
-    <div className="col">
-      <span
-        className="text-lg flex gap-4 items-center font-bold cursor-pointer mb-2"
-        onClick={() => setShow((prev) => !prev)}
-      >
-        {filterName}
-        <ArrowIcon className={`${show ? "rotate-180" : "rotate-0"} `} />
-      </span>
-      {show &&
-        values.map((value) => {
-          const checked = isIn(slug, value.slug);
-          return (
-            <Checkbox
-              name={value.name}
-              key={value.slug}
-              checked={checked}
-              toggle={() => toggle(value.slug)}
-            />
-          );
-        })}
-    </div>
+    <FilterItem
+      isShow={show}
+      showContent={showContent}
+      filterName={filterName}
+      slug={slug}
+      isIn={isIn}
+      toggle={toggle}
+      values={values}
+    />
   );
 };

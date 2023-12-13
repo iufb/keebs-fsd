@@ -13,7 +13,7 @@ export const KeycapPage = () => {
     <div>
       {isLoading && <Loader />}
       {keycapDetails && (
-        <main className="flex gap-x-20">
+        <main className="pageLayout">
           <ImageGallery images={keycapDetails.images} />
           <div className="col gap-3">
             <h1 className="text-[42px] font-bold font-roboto">
