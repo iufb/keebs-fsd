@@ -22,9 +22,9 @@ export const Card: FC<ICard> = ({
   ...props
 }) => {
   return (
-    <div className="relative group">
+    <div className="relative group ">
       <Link className={`${className} w-full h-full col gap-2  `} {...props}>
-        <CustomImage size={400} src={img} alt={name} className="rounded-lg" />
+        <CustomImage src={img} alt={name} className="rounded-lg" />
         {colors && colors.length > 0 && (
           <div className="flex gap-2 justify-end -mt-10 mb-4 pr-2">
             {colors.map((color) => (

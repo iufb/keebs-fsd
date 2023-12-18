@@ -7,17 +7,18 @@ import {
   useState,
 } from "react";
 import { useSearchParams } from "react-router-dom";
-import useMeasure from "react-use-measure";
 import { IImage } from "src/entities/keyboard";
 import { CustomImage } from "src/shared/ui";
 
 const getImg = (images: string[] | IImage[], idx: number) => {
   if (typeof images[idx] === "string") {
-    return images[idx];
-  } else if (typeof images[idx] === "object") {
-    return images[idx].image;
+    const src = images[idx] as string;
+    return src;
+  } else if (typeof images[idx] == "object") {
+    const imageObj = images[idx] as IImage;
+    return imageObj.image;
   } else {
-    return null;
+    return "";
   }
 };
 
@@ -28,7 +29,6 @@ interface IImageGallery
 
 export const ImageGallery: FC<IImageGallery> = ({ images }) => {
   const [selected, setSelected] = useState(0);
-  const [ref, { width }] = useMeasure();
   const [searchParams] = useSearchParams();
   const colorQuery = searchParams.get("color");
   const changeImage = (idx: number) => {
@@ -45,8 +45,10 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
   }, [colorQuery]);
   const baseImage = getImg(images, selected);
   return (
-    <div className="grid grid-cols-imageGallery gap-x-5 w-fit h-full   ">
-      <div className="col grow-0 gap-2 w-20 max-w-full max-h-fit ">
+    <div className="grid lg:grid-cols-[80px_1fr] gap-2 grid-cols-1    ">
+      <div
+        className={`flex lg:flex-col gap-2 flex-row flex-wrap order-2 lg:order-1 min-h-[80px] w-full  overflow-x-scroll lg:overflow-x-visible `}
+      >
         {images.map((img, idx) => {
           let i;
           if (typeof img == "string") {
@@ -55,35 +57,25 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
             i = img.image;
           }
           return (
-            <CustomImage
-              size={80}
-              src={i}
-              alt={`image of keyboard ${idx + 1}`}
-              className="rounded-lg cursor-pointer"
-              key={idx}
-              onClick={() => changeImage(idx)}
-            />
+            <div className="h-[80px] w-[80px] ">
+              <CustomImage
+                src={i}
+                alt={`image of keyboard ${idx + 1}`}
+                className="rounded-lg cursor-pointer"
+                key={idx}
+                onClick={() => changeImage(idx)}
+              />
+            </div>
           );
         })}
       </div>
-      <AnimatePresence>
-        <div className="overflow-hidden" ref={ref}>
-          <motion.div
-            key={selected}
-            initial={{ x: width }}
-            animate={{ x: 0 }}
-            exit={{ x: -width }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-          >
-            <CustomImage
-              size={920}
-              src={baseImage}
-              alt="keyboard"
-              className="w-[920px]  rounded-lg"
-            />
-          </motion.div>
-        </div>
-      </AnimatePresence>
+      <div className=" lg:relative  h-full  order-1 lg:order-2  ">
+        <CustomImage
+          src={baseImage}
+          alt="keyboard"
+          className="  rounded-lg lg:absolute h-full"
+        />
+      </div>
     </div>
   );
 };

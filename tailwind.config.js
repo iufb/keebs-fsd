@@ -6,9 +6,18 @@ export default {
       fontFamily: {
         roboto: ["'Roboto Condensed'", "sans-serif"],
       },
+      minWidth: {
+        "20vw": "20vw",
+      },
+      minHeight: {
+        "15vh": "15vh",
+      },
       gridTemplateColumns: {
         collections: "300px 1fr",
-        imageGallery: "80px 1fr",
+        imageGallery: "80px 500px",
+      },
+      gridTemplateRows: {
+        imageGallery: " 500px 80px",
       },
       colors: {
         background: "#fff",

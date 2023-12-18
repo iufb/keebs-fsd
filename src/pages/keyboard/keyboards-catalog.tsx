@@ -27,8 +27,6 @@ export const KeyboardsCatalogPage = () => {
                 to={PATH.keyboardDetails(keyboard._id)}
                 name={keyboard.name}
                 img={keyboard.images[0].image}
-                rating={5}
-                reviewCount={5}
                 price={keyboard.price}
                 buttons={
                   <>

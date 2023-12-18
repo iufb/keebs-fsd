@@ -13,7 +13,7 @@ export const CartModal = () => {
   const { cart, isLoading, error, total } = useGetCart();
   const navigate = useNavigate();
   return (
-    <div className="w-[450px] col  gap-y-4 pt-10 p-2 -top-3 -left-52 absolute z-20 bg-white rounded-md shadow-lg max-h-screen">
+    <div className="w-[450px] col  gap-y-4 pt-10 p-2 -top-3 -left-52 absolute z-50 bg-white rounded-md shadow-lg max-h-screen">
       <Button
         variant="icon_no_bg"
         className="absolute  right-2 top-2 center gap-2"
