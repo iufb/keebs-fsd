@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
 import {
   DetailedHTMLProps,
   FC,
@@ -45,9 +44,9 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
   }, [colorQuery]);
   const baseImage = getImg(images, selected);
   return (
-    <div className="grid lg:grid-cols-[80px_1fr] gap-2 grid-cols-1    ">
+    <div className="grid xl:grid-cols-[80px_1fr] gap-2 grid-cols-1    ">
       <div
-        className={`flex lg:flex-col gap-2 flex-row flex-wrap order-2 lg:order-1 min-h-[80px] w-full  overflow-x-scroll lg:overflow-x-visible `}
+        className={`flex xl:flex-col gap-2 flex-row flex-wrap order-2 xl:order-1 min-h-[80px] w-full  overflow-x-scroll xl:overflow-x-visible `}
       >
         {images.map((img, idx) => {
           let i;
@@ -69,11 +68,11 @@ export const ImageGallery: FC<IImageGallery> = ({ images }) => {
           );
         })}
       </div>
-      <div className=" lg:relative  h-full  order-1 lg:order-2  ">
+      <div className="xl:relative   order-1 xl:order-2   ">
         <CustomImage
           src={baseImage}
           alt="keyboard"
-          className="  rounded-lg lg:absolute h-full"
+          className="  rounded-lg xl:absolute h-full"
         />
       </div>
     </div>
