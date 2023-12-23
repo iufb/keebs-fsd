@@ -1,5 +1,7 @@
+import { AnimatePresence } from "framer-motion";
+import React from "react";
 import { lazy } from "react";
-import { useRoutes } from "react-router-dom";
+import { useLocation, useRoutes } from "react-router-dom";
 import { ProtectedRoute } from "src/features/auth";
 import { MainLayout } from "src/pages/layouts";
 import { PATH } from "src/shared/lib";
@@ -18,7 +20,7 @@ const SwitchesCatalogPage = Loadable(lazy(() => import("src/pages/switches")));
 const SwitchesDetails = Loadable(lazy(() => import("src/pages/switches/[id]")));
 
 export const RouterProvider = () => {
-  return useRoutes([
+  const element = useRoutes([
     {
       path: PATH.root,
       element: <MainLayout />,
@@ -51,4 +53,10 @@ export const RouterProvider = () => {
       ],
     },
   ]);
+  const location = useLocation();
+
+  if (!element) return null;
+  return <AnimatePresence mode="wait">
+    {React.cloneElement(element, { key: location.pathname })}
+  </AnimatePresence>
 };
