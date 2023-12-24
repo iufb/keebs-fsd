@@ -14,7 +14,6 @@ export const KeyboardsCatalogPage = () => {
   }));
   return (
     <section className="w-full h-full collection-grid">
-      {/* {isLoading && <div>laoding</div>} */}
       <KeyboardFilterSidebar />
       {keyboards && (
         <div className="col gap-2 items-end">

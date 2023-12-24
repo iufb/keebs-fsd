@@ -1,5 +1,6 @@
 export { Button } from "./button";
 export { Loadable } from "./loadable";
+export { ResizablePanel } from './resizable-panel'
 export { CustomImage } from "./img";
 export { Option } from "./option";
 export { Select } from "./select";
@@ -9,5 +10,4 @@ export { Radio } from "./radio";
 export { Divider } from "./divider";
 export { Loader } from "./loader";
 export { Input } from "./input";
-export { Header } from "./header";
 export { Footer } from "./footer";

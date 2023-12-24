@@ -29,6 +29,7 @@ export const Card: FC<ICard> = ({
           <div className="flex gap-2 justify-end -mt-10 mb-4 pr-2">
             {colors.map((color) => (
               <span
+                key={color.hex}
                 style={{ backgroundColor: color.hex }}
                 className="w-4 h-4 rounded-md border "
               />

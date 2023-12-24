@@ -20,12 +20,12 @@ export const BurgerButton: FC<IBurgetButton> = ({
     toggle(false);
   };
   return (
-    <button className={`${className}`} {...props}>
+    <button className={`${className}`}  {...props}>
       {open ? (
-        <button onClick={close} className="center gap-2  ">
-          <span className="font-roboto text-xl">Close</span>
+        <span onClick={close} className='text-xl font-roboto center gap-2'>
+          Close
           <IoMdClose size={20} />
-        </button>
+        </span>
       ) : (
         <RxHamburgerMenu
           size={22}

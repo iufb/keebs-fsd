@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FC } from "react";
-import { Checkbox } from "src/shared/ui";
+import { Checkbox, ResizablePanel } from "src/shared/ui";
 import { ArrowIcon } from "src/shared/ui/icons";
 import { FilterType } from "./model";
 
@@ -45,19 +45,21 @@ export const FilterItem: FC<IFilterItem> = ({
         {filterName}
         <motion.span>
           <ArrowIcon
-            className={`${
-              isShow ? "rotate-180" : "rotate-0"
-            } transition ease-out duration-300`}
+            className={`${isShow ? "rotate-180" : "rotate-0"
+              } transition ease-out duration-300`}
           />
         </motion.span>
       </span>
-      <motion.div
-        variants={variants}
-        initial={isShow ? "initial" : "animate"}
-        animate={isShow ? "initial" : "animate"}
-        className="overflow-hidden"
-      >
-        {values.map((value) => {
+      {/* <motion.div */}
+      {/*   variants={variants} */}
+      {/*   layout */}
+      {/*   layoutId="height" */}
+      {/*   initial={isShow ? "initial" : "animate"} */}
+      {/*   animate={isShow ? "initial" : "animate"} */}
+      {/*   className={`overflow-hidden `} */}
+      {/* > */}
+      <ResizablePanel>
+        {isShow && values.map((value) => {
           const checked = isIn(slug, value.slug);
           return (
             <Checkbox
@@ -68,7 +70,8 @@ export const FilterItem: FC<IFilterItem> = ({
             />
           );
         })}
-      </motion.div>
+      </ResizablePanel>
+      {/* </motion.div> */}
     </div>
   );
 };

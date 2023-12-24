@@ -47,6 +47,6 @@ body {
     @apply grid  w-full h-full grid-cols-1 lg:grid-cols-2  xl:grid-cols-3 gap-2;
   }
   .collection-grid {
-    @apply grid grid-cols-collections gap-2 min-h-screen;
+    @apply grid  md:grid-cols-collections grid-cols-1 px-5 gap-2 min-h-screen;
   }
 }

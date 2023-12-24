@@ -2,7 +2,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { navlinks } from "src/shared/lib";
 import { Navlink } from "./navlink";
 interface INavbar
-  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }
 export const Navbar: FC<INavbar> = ({ className, ...props }) => {
   return (
     <nav className={`${className}`} {...props}>
