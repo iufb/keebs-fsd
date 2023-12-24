@@ -9,12 +9,11 @@ export const WishlistPage = () => {
   if (errorMessage) return <div>{errorMessage}</div>;
   if (isLoading) return <Loader />;
 
-  console.log(wishlistProducts);
   return (
-    <section className="w-full min-h-screen ">
+    <section className="w-full min-h-screen px-5 ">
       <h1 className="h1 w-full text-center">Wishlist</h1>
       {wishlistProducts?.length == 0 && <div>Wishlist is empty</div>}
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1  gap-5">
         {wishlistProducts &&
           wishlistProducts.map((product) => {
             if (!product) return;

@@ -1,5 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ResizablePanel } from "src/shared/ui";
 import { useCartCount } from "../queries/use-cart-count";
 import { useCartStore } from "../store";
 import { CartModal } from "./cart-modal";
@@ -264,7 +265,7 @@ export const CartIcon = () => {
   };
   return (
     <div className="relative cursor-pointer">
-      <Icon onClick={showUserCart} /> {isShow && <CartModal />}
+      <Icon onClick={showUserCart} /> {isShow && <ResizablePanel><CartModal /></ResizablePanel>}
       {showProductCount()}
     </div>
   );

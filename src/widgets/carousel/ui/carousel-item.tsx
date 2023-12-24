@@ -60,13 +60,13 @@ export const CarouselItem: FC<ICarouselItem> = ({
         <div className="bg-black h-full absolute z-20 top-0 left-0 w-full opacity-40" />
         <img src={img} alt={name} />
       </motion.div>
-      <div className="flex flex-col z-30 justify-center gap-4 items-center absolute -translate-x-1/2 left-1/2 top-1/2 text-white ">
+      <div className="flex flex-col z-30 justify-center gap-4 items-center absolute -translate-x-1/2 left-1/2 lg:top-1/2 top-[30%] text-white ">
         <motion.h2
           variants={textVariants}
           initial="enter"
           animate="center"
           custom={-100}
-          className="text-7xl font-bold"
+          className="lg:text-7xl md:text-5xl sm:text-3xl text-2xl font-bold"
         >
           {name}
         </motion.h2>
@@ -76,17 +76,18 @@ export const CarouselItem: FC<ICarouselItem> = ({
           initial="enter"
           animate="center"
           custom={-40}
-          className="text-lg center col gap-4 "
+          className="lg:text-lg hidden text-md center col gap-4 text-center"
         >
           {desc}
-          <Button
-            variant="outlined"
-            className="max-w-fit"
-            onClick={() => navigate(`/keyboards/${id}`)}
-          >
-            SHOP NOW
-          </Button>
         </motion.p>
+        <Button
+          variant="outlined"
+          className="max-w-fit !text-sm"
+          onClick={() => navigate(`/keyboards/${id}`)}
+        >
+          SHOP NOW
+        </Button>
+
       </div>
     </div>
   );

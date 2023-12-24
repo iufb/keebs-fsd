@@ -13,10 +13,10 @@ export const SwitchesPage = () => {
     <div>
       {isLoading && <Loader />}
       {switchesDetails && (
-        <main className="flex gap-x-20">
+        <main className="grid lg:grid-cols-2 grid-cols-1 px-5 gap-x-4">
           <ImageGallery images={switchesDetails.images} />
-          <div className="col gap-3">
-            <h1 className="text-[42px] font-bold font-roboto">
+          <div className="col gap-3 ">
+            <h1 className="h1 font-bold font-roboto">
               {switchesDetails.name}
             </h1>
             <span className="text-2xl">${switchesDetails.price}</span>

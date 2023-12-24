@@ -7,7 +7,7 @@ export const SignOutButton = () => {
     <Button
       variant="outlined"
       onClick={() => signout()}
-      className="underline font-normal max-w-fit"
+      className="underline !text-sm  font-normal max-w-fit"
     >
       Sign out
     </Button>
