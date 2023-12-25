@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Loader } from "src/shared/ui";
+import { Button, Error, Loader } from "src/shared/ui";
 import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { useHeroKeyboards } from "../queries/use-hero-keyboards";
 import { CarouselItem } from "./carousel-item";
@@ -27,11 +27,13 @@ export const Carousel = () => {
       setSelected((prev) => prev - 1);
     }
   };
+  console.log(isLoading)
+  console.log(error)
+  if (isLoading) return <Loader size="lg" />;
+  if (error) return <Error message={error} />
   return (
     <div className="relative rounded-md">
       {items?.map((item, index) => {
-        if (isLoading) return <Loader />;
-        if (error) return <div>{error}</div>;
         return (
           <CarouselItem
             id={item.id}

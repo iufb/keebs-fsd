@@ -1,6 +1,7 @@
 export { Button } from "./button";
 export { Loadable } from "./loadable";
 export { ResizablePanel } from './resizable-panel'
+export { Error } from './error'
 export { CustomImage } from "./img";
 export { Option } from "./option";
 export { Select } from "./select";

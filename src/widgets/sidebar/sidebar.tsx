@@ -38,7 +38,7 @@ export const Sidebar: FC<ISidebar> = ({ title, isLoading, children }) => {
         <IoIosOptions size={22} />
         Filter
       </button>
-      <ResizablePanel className="absolute lg:relavite z-50 lg:z-0 px-5 bg-white lg:bg-inherit " >
+      <ResizablePanel className="absolute lg:relative z-50  md:z-0 px-5 bg-white lg:bg-inherit " >
         {show && children}
       </ResizablePanel>
     </section>

@@ -8,8 +8,8 @@ export const AccountDetails = () => {
       <h2 className="h2">Account details</h2>
       {isLoading && <Loader />}
       {error && <Error message={error} />}
-      <span className="font-bold">{accountDetails?.username}</span>
-      <span>Email : {accountDetails?.email}</span>
+      <span className="font-bold">{data?.username}</span>
+      <span>Email : {data?.email}</span>
     </div>
   );
 };

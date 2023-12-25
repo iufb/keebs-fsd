@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, CustomImage } from "src/shared/ui";
+import { useNavigate } from "react-router-dom";
+import { Button } from "src/shared/ui";
 import { motion } from "framer-motion";
 interface ICarouselItem {
   id: string;
